@@ -1,0 +1,31 @@
+{{!-- we need to have enctype="multipart/form-data" and input type="file" --}}
+
+<h1>Dragon's Home</h1>
+
+<form action="/dragons/create" method="post" enctype="multipart/form-data">
+
+<label for="nameInput">Name</label>
+<input id="nameInput" type="text" name="name" placeholder="Draco">
+
+<label for="locationInput">Location</label>
+<input id="locationInput" type="text" name="location" placeholder="Winterfell">
+
+<label for="coolFactor">Cool Factor</label>
+<input id="coolFactor" type="number" name="coolFactor" placeholder="5">
+
+<label for="imageInput"></label>
+<input id="imageInput" type="file" name="image">
+
+<button type="submit">Save New Dragon</button>
+
+</form>
+
+<hr>
+
+{{#each dragons}}
+  <h3>Name: {{this.name}}</h3>
+  <img src="{{this.image}}" alt="{{this.name}}">
+  <h4>Cool Factor: {{this.coolFactor}}</h4>
+  <h3>Location: {{this.location}}</h3>
+
+{{/each}}
